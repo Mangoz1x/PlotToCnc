@@ -1,5 +1,5 @@
 const { SaveGCode, CalculateVectors, ConvertDesmosToVectorArray, CleanVectors } = require("./lib/logic");
-const points = require("./data/points");
+const points = require("./data/points-test");
 
 const Vectors = CalculateVectors({ 
     points, 
