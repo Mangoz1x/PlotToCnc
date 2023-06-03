@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive Chart with Zoom</title>
+    <style>
+        #canvas-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js"></script>
+</head>
+
+<body>
+    <div id="canvas-container">
+        <button onclick="localStorage.removeItem('data'); window.location.reload()" style="position: fixed; top: 20px; right: 20px;">Clear</button>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('myChart');
+        const ctx = canvas.getContext('2d');
+
+        // Data array to store the selected points
+        let data = [];
+
+        try {
+            data = JSON.parse(localStorage.getItem("data")) || [];
+        } catch {
+            data = [];
+        }
+
+        console.log(data)
+
+        // Create the chart
+        const myChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Scatter Dataset',
+                    data: data,
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        beginAtZero: true,
+                        suggestedMin: 0,
+                        suggestedMax: 6
+                    },
+                    y: {
+                        type: 'linear',
+                        beginAtZero: true,
+                        suggestedMin: 0,
+                        suggestedMax: 4,
+                    }
+                },
+                plugins: {
+                    zoom: {
+                        zoom: {
+                            wheel: {
+                                enabled: true,
+                            },
+                            pinch: {
+                                enabled: true
+                            },
+                            mode: 'xy',
+                        }
+                    }
+                }
+            }
+        });
+
+        // Add click event to the canvas
+        canvas.onclick = function (evt) {
+            // Convert the click position to a chart data point
+            const point = Chart.helpers.getRelativePosition(evt, myChart);
+            const xValue = parseFloat(myChart.scales.x.getValueForPixel(point.x).toFixed(1));
+            const yValue = parseFloat(myChart.scales.y.getValueForPixel(point.y).toFixed(1));
+
+            // Add the point to the data array
+            data.push({
+                x: xValue,
+                y: yValue
+            });
+
+            // Refresh the chart
+            myChart.update();
+
+            // Save
+            localStorage.setItem("data", JSON.stringify(data));
+
+            // Print the data array to console
+            console.log(data);
+        };
+    </script>
+</body>
+
+</html>

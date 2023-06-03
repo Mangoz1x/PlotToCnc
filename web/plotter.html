@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; height: 100vh; width: 100%; overflow: hidden;">
+    <canvas id="graph" width="100" height="100" style="width: 70%; max-width: 80%; max-height: 80%;"></canvas>
+
+    <script>
+        const dataPoints = [];
+
+        const graph = document.getElementById("graph");
+        const ratio = window.innerHeight / window.innerWidth;
+
+        const width = 500;
+        const height = 500;
+        const interval = 50;
+
+        graph.width = width;
+        graph.height = height;
+
+        const context = graph.getContext('2d');
+
+        const DrawGraphBars = () => {
+
+            for (let i = 0; i < width; i++) {
+                if (i % interval !== 0) continue;
+                context.fillStyle = "#000000";
+                context.fillRect(i, 0, 0.3, graph.height);
+            }
+
+            for (let i = Math.round(height); i > 0; i--) {
+                if (i % interval !== 0) continue;
+                context.fillStyle = "#000000";
+                context.fillRect(interval, i, graph.width, 0.3);
+
+                context.font = "7px Arial";
+                context.fillText(Math.round(height) - i, 2, i + 4);
+            }
+        }
+
+        const DrawPoint = (e) => {
+            const pxWidth = graph.getBoundingClientRect().width;
+            const pxHeight = graph.getBoundingClientRect().height;
+            const wRatio = pxWidth / width;
+            const hRatio = pxHeight / height;
+
+            const clickX = e.x / wRatio;
+            const clickY = e.y / hRatio;
+
+            context.fillStyle = "red";
+            context.fillRect(clickX, clickY, 4, 4);
+
+            dataPoints.push([parseFloat(clickX.toFixed(4)), parseFloat(clickY.toFixed(4))]);
+            localStorage.setItem("value", JSON.stringify(dataPoints));
+        }
+
+        const SetListener = () => {
+            let mouseState = false;
+
+            graph.addEventListener("click", (e) => {
+                DrawPoint(e);
+            });
+
+            graph.addEventListener("mousedown", (e) => {
+                mouseState = true;
+            });
+
+            graph.addEventListener("mouseup", (e) => {
+                mouseState = false;
+            });
+
+            graph.addEventListener("mousemove", (e) => {
+                if (!mouseState) return;
+                DrawPoint(e);
+            });
+        }
+
+        SetListener();
+        DrawGraphBars();
+    </script>
+</body>
+
+</html>
