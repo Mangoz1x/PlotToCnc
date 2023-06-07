@@ -2,10 +2,13 @@ const { SaveGCode, CalculateVectors, ParseString, ConvertDesmosToVectorArray, Cl
 const points = require("./data/points-test");
 const letters = require("./data/letters");
 
-const ParsedString = ParseString("FIRST OF ALL I THINK THAT THIS IS PRETTY COOL BECAUSE NOW INSTEAD OF TYPING EACH LETTER MANUALLY I CAN AUTOMATE IT");
+const ParsedString = ParseString("HI, I'M RYAN", {
+    scale: 2
+});
+
 const Calced = CalculateVectors({
     points: ParsedString,
-    OutputText: true
+    OutputText: true,
 });
 
 SaveGCode({ 

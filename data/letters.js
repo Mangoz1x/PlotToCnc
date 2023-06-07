@@ -134,16 +134,18 @@ const data = {
                 1
             ],
             [
-                0.3,
+                0.2,
                 1
             ],
             [
                 0.6,
-                0.5
+                0.5,
+                { g: "02", r: 0.5 }
             ],
             [
-                0.3,
-                0
+                0.2,
+                0,
+                { g: "02", r: 0.5 }
             ],
             [
                 0,
@@ -232,15 +234,18 @@ const data = {
             ],
             [
                 0.5,
-                0
+                0,
+                { g: '02', r: 0.5 }
             ],
             [
                 0,
-                0.5
+                0.5,
+                { g: '02', r: 0.5 }
             ],
             [
                 0.5,
-                1
+                1,
+                { g: '02', r: 0.5 }
             ]
         ],
         "xOffset": 0,
@@ -789,7 +794,50 @@ const data = {
         "xOffset": 0,
         "yOffset": 0,
         "scaleFactor": scaleFactor
-    }
+    },
+    ",": {
+        "plot": [
+            [
+                0.05,
+                0.05
+            ],
+            [
+                -0.05,
+                -0.05,
+                { g: '02', r: 1 }
+            ]
+        ],
+        "xOffset": 0,
+        "yOffset": 0,
+        "scaleFactor": scaleFactor
+    },
+    ".": {
+        "plot": [
+            [
+                0.05,
+                0.05
+            ]
+        ],
+        "xOffset": 0,
+        "yOffset": 0,
+        "scaleFactor": scaleFactor
+    },
+    "'": {
+        "plot": [
+            [
+                0.05,
+                1.05
+            ],
+            [
+                -0.05,
+                0.95,
+                { g: '02', r: 1 }
+            ]
+        ],
+        "xOffset": 0,
+        "yOffset": 0,
+        "scaleFactor": scaleFactor
+    },
 }
 
 module.exports = data;
