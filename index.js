@@ -17,19 +17,19 @@ const ParsedHeadingVectors = CalculateVectors({
 // Calculate Paragraph Text
 const ParsedP1 = ParseString("I GO TO OLQWCA HIGHSCHOOL", {
     yOffset: 2.9,
-    xOffset: 2.8,
+    xOffset: 2.77,
     scale: 0.1
 });
 
 const ParsedP2 = ParseString("I LOVE TO CODE, AND WEIGHT LIFT", {
     yOffset: 2.7,
-    xOffset: 2.8,
+    xOffset: 2.77,
     scale: 0.1
 });
 
 const ParsedP3 = ParseString("INFACT, I MADE THIS ALL WITH CODE", {
     yOffset: 2.5,
-    xOffset: 2.8,
+    xOffset: 2.77,
     scale: 0.1
 });
 
