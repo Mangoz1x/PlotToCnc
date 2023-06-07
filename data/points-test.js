@@ -85,19 +85,7 @@ const data = [
         xOffset: GlobalX,
         yOffset: GlobalY,
         scaleFactor: scaleFactor 
-    },
-    {
-        plot: [
-            [10, 10], 
-            [9, 11, { g: '02', r: 1 }], 
-            [10, 12, { g: '02', r: 1 }], 
-            [11, 11, { g: '02', r: 1 }],
-            [10, 10, { g: '02', r: 1 }]
-        ],
-        xOffset: GlobalX+2,
-        yOffset: GlobalY,
-        scaleFactor: scaleFactor 
-    },
+    }
 ];
 
 module.exports = data;
