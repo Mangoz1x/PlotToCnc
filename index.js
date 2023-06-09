@@ -9,16 +9,21 @@ const ParsedHeading = ParseString("HI, I'M RYAN", {
     scale: 0.25
 });
 
+console.log(ParsedHeading[0])
+
 const ParsedHeadingVectors = CalculateVectors({
     points: ParsedHeading,
     OutputText: false,
+    ExludeStartXY0: true
 });
 
 // Calculate Paragraph Text
-const ParsedP1 = ParseString("I GO TO OLQWCA HIGHSCHOOL", {
+const ParsedP1 = ParseString("I GO TO OLQWCA", {
     yOffset: 2.9,
     xOffset: 2.77,
-    scale: 0.1
+    scale: 0.1,
+    letterSpacing: 0.5,
+    spaceScale: 0.2,
 });
 
 const ParsedP2 = ParseString("I LOVE TO CODE, AND WEIGHT LIFT", {
@@ -27,7 +32,7 @@ const ParsedP2 = ParseString("I LOVE TO CODE, AND WEIGHT LIFT", {
     scale: 0.1
 });
 
-const ParsedP3 = ParseString("INFACT, I MADE THIS ALL WITH CODE", {
+const ParsedP3 = ParseString("IN FACT, I MADE THIS ALL WITH CODE", {
     yOffset: 2.5,
     xOffset: 2.77,
     scale: 0.1
@@ -41,11 +46,16 @@ const ParsedParagraphVectors = CalculateVectors({
 // Calculate Face
 const FaceVectors = CalculateVectors({ 
     points, 
-    OutputText: false
+    OutputText: false,
+    ExludeStartXY0: true
 });
 
 const AllCleanedVectors = CleanVectors({
-    arrayVectors: [...FaceVectors, ...ParsedHeadingVectors, ...ParsedParagraphVectors],
+    arrayVectors: [
+        ...FaceVectors,
+        ...ParsedHeadingVectors, 
+        // ...ParsedParagraphVectors
+    ],
     OutputText: true
 });
 
