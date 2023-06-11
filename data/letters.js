@@ -28,7 +28,9 @@ const DesmosLetterStrings = {
     W: `\left(0,1\right),\left(0,0\right),\left(0.5,0.5\right),\left(1,0\right),\left(1,1\right)`,
     X: `\left(1,1\right),\left(0,0\right),\left(0.5,0.5\right),\left(0,1\right),\left(1,0\right)`,
     Y: `\left(0.15,1\right),\left(0.5,0.6\right),\left(0.5,0\right),\left(0.5,0.6\right),\left(0.85,1\right)`,
-    Z: `\left(1,1\right),\left(0,1\right),\left(1,0\right),\left(0,0\right)`
+    Z: `\left(1,1\right),\left(0,1\right),\left(1,0\right),\left(0,0\right)`,
+    2: '\left(0,0.5\right),\left(0.5,1\right),\left(1,0.5\right),\left(0,0\right),\left(1,0\right)',
+    0: '\left(0.3,0\right),\left(0,0.3\right),\left(0,0.7\right),\left(0.3,1\right),\left(0.6,0.7\right),\left(0.6,0.3\right),\left(0.3,0\right)'
 }
 
 const data = {
@@ -592,26 +594,26 @@ const data = {
     "S": {
         "plot": [
             [
-                0.5, 
+                0.5,
                 0.85
             ],
             [
-                0, 
+                0,
                 0.75,
                 { g: '03', r: 0.26 }
             ],
             [
-                0.25, 
+                0.25,
                 0.5,
                 { g: '03', r: 0.26 }
             ],
             [
-                0.5, 
+                0.5,
                 0.25,
                 { g: '02', r: 0.26 }
             ],
             [
-                0, 
+                0,
                 0.15,
                 { g: '02', r: 0.26 }
             ]
@@ -838,6 +840,50 @@ const data = {
         "yOffset": 0,
         "scaleFactor": scaleFactor
     },
+    "2": {
+        "plot": [
+            [0, 0.5],
+            [0, 0.7],
+            [0.3, 1, { g: '02', r: 0.3 }],
+            [0.6, 0.7, { g: '02', r: 0.3 }],
+            [0.6, 0.5],
+            [0, 0],
+            [0.6, 0]
+        ],
+        "xOffset": 0,
+        "yOffset": 0,
+        "scaleFactor": scaleFactor
+    },
+    "0": {
+        "plot": [
+            [0.3, 0],
+            [0, 0.3, { g: '02', r: 0.3 }],
+            [0, 0.7],
+            [0.3, 1, { g: '02', r: 0.3 }],
+            [0.6, 0.7, { g: '02', r: 0.3 }],
+            [0.6, 0.3],
+            [0.3, 0, { g: '02', r: 0.3 }]
+        ],
+        "xOffset": 0,
+        "yOffset": 0,
+        "scaleFactor": scaleFactor
+    },
+    "3": {
+        "plot": [
+            [0, 1], 
+            [0.35, 1],
+            [0.55, 0.75, { g: '02', r: 0.25 }], 
+            [0.35, 0.5, { g: '02', r: 0.25 }], 
+            [0, 0.5],
+            [0.35, 0.5],
+            [0.55, 0.25, { g: '02', r: 0.25 }],
+            [0.35, 0, { g: '02', r: 0.25 }], 
+            [0, 0]
+        ],
+        "xOffset": 0,
+        "yOffset": 0,
+        "scaleFactor": scaleFactor
+    }
 }
 
 module.exports = data;

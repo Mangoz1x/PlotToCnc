@@ -2,14 +2,13 @@ const { SaveGCode, CalculateVectors, ParseString, ConvertDesmosToVectorArray, Cl
 const points = require("./data/points-test");
 // const letters = require("./data/letters");
 
+
 // Calculate Heading Text
 const ParsedHeading = ParseString("HI, I'M RYAN", {
     yOffset: 3.2,
     xOffset: 2.8,
-    scale: 0.25
+    scale: 0.3
 });
-
-console.log(ParsedHeading[0])
 
 const ParsedHeadingVectors = CalculateVectors({
     points: ParsedHeading,
@@ -18,28 +17,40 @@ const ParsedHeadingVectors = CalculateVectors({
 });
 
 // Calculate Paragraph Text
-const ParsedP1 = ParseString("I GO TO OLQWCA", {
-    yOffset: 2.9,
+const ParsedP1 = ParseString("I ATTEND OLQWCA", {
+    yOffset: 2.8,
     xOffset: 2.77,
-    scale: 0.1,
-    letterSpacing: 0.5,
+    scale: 0.17,
+    letterSpacing: 0.25,
     spaceScale: 0.2,
 });
 
-const ParsedP2 = ParseString("I LOVE TO CODE, AND WEIGHT LIFT", {
-    yOffset: 2.7,
-    xOffset: 2.77,
-    scale: 0.1
-});
-
-const ParsedP3 = ParseString("IN FACT, I MADE THIS ALL WITH CODE", {
+const ParsedP2 = ParseString("I LOVE TO CODE", {
     yOffset: 2.5,
     xOffset: 2.77,
-    scale: 0.1
+    scale: 0.17,
+    letterSpacing: 0.25,
+    spaceScale: 0.2
+});
+
+const ParsedP3 = ParseString("I LIFT WEIGHTS", {
+    yOffset: 2.2,
+    xOffset: 2.77,
+    scale: 0.17,
+    letterSpacing: 0.25,
+    spaceScale: 0.2,
+});
+
+const Year = ParseString("2023", {
+    yOffset: 0.4,
+    xOffset: 2.77,
+    scale: 0.4,
+    letterSpacing: 0.25,
+    spaceScale: 0.2,
 });
 
 const ParsedParagraphVectors = CalculateVectors({
-    points: [...ParsedP1, ...ParsedP2, ...ParsedP3],
+    points: [...ParsedP1, ...ParsedP2, ...ParsedP3, ...Year],
     OutputText: false,
 });
 
@@ -54,7 +65,7 @@ const AllCleanedVectors = CleanVectors({
     arrayVectors: [
         ...FaceVectors,
         ...ParsedHeadingVectors, 
-        // ...ParsedParagraphVectors
+        ...ParsedParagraphVectors
     ],
     OutputText: true
 });
