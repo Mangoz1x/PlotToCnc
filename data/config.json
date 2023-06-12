@@ -4,7 +4,7 @@
     "MaximumDecimals": 4,
     "SpindleSpeed": 2000,
     "ZLift": 1,
-    "ZCut": -0.375,
+    "ZCut": -0.016,
     "FeedRate": 10,
     "scaleFactor": 0.25,
     "StartCoordinates": {
