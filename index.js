@@ -1,7 +1,7 @@
 const { SaveGCode, CalculateVectors, ParseString, ConvertDesmosToVectorArray, CleanVectors } = require("./lib/logic");
 const points = require("./data/points-test");
+const weightImg = require("./data/weight-image");
 // const letters = require("./data/letters");
-
 
 // Calculate Heading Text
 const ParsedHeading = ParseString("HI, I'M RYAN", {
@@ -52,9 +52,17 @@ const Year = ParseString("2023", {
 const ParsedParagraphVectors = CalculateVectors({
     points: [...ParsedP1, ...ParsedP2, ...ParsedP3, ...Year],
     OutputText: false,
+    ExludeStartXY0: true
 });
 
 // Calculate Face
+const WeightVectors = CalculateVectors({
+    points: weightImg, 
+    OutputText: false,
+    ExludeStartXY0: true,
+
+});
+
 const FaceVectors = CalculateVectors({ 
     points, 
     OutputText: false,
@@ -65,7 +73,8 @@ const AllCleanedVectors = CleanVectors({
     arrayVectors: [
         ...FaceVectors,
         ...ParsedHeadingVectors, 
-        ...ParsedParagraphVectors
+        ...ParsedParagraphVectors,
+        ...WeightVectors
     ],
     OutputText: true
 });
