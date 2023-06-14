@@ -43,7 +43,7 @@ const ParsedP3 = ParseString("I LIFT WEIGHTS", {
 
 const Year = ParseString("2023", {
     yOffset: 0.4,
-    xOffset: 2.77,
+    xOffset: 2.81,
     scale: 0.4,
     letterSpacing: 0.25,
     spaceScale: 0.2,
