@@ -2,7 +2,7 @@
     "GlobalX": 0.2, 
     "GlobalY": 0.2,
     "MaximumDecimals": 4,
-    "SpindleSpeed": 2000,
+    "SpindleSpeed": 4000,
     "ZLift": 1,
     "ZCut": -0.016,
     "FeedRate": 10,
